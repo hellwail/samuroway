@@ -9,25 +9,26 @@ import News from './components/News/News';
 import Music from './components/Music/Music';
 import Options from './components/Options/Options';
 
+const App = (props) => {
 
-
-const App = () => {
   return (
     <BrowserRouter>
-    <div className="app-wrapper">
-      <Header />
-      <NavBar />
-      <div className='app-wrapper-content'>
-        <Routes>
-          <Route path='/profile' element={<Profile/>} />
-          <Route path='/dialogs/*' element={<Dialogs/>} />
-          <Route path='/news' element={<News/>} />
-          <Route path='/music' element={<Music/>} />
-          <Route path='/settings' element={<Options/>} />
-          
-        </Routes>
+      <div className="app-wrapper">
+        <Header />
+        <NavBar />
+        <div className='app-wrapper-content'>
+          <Routes>
+            <Route path='/profile' element={<Profile
+              state={props.state.profilePage} />} />
+            <Route path='/dialogs/*' element={<Dialogs
+              state={props.state.dialogsPage} />} />
+            <Route path='/news' element={<News />} />
+            <Route path='/music' element={<Music />} />
+            <Route path='/settings' element={<Options />} />
+
+          </Routes>
+        </div>
       </div>
-    </div>
     </BrowserRouter>
   );
 }
